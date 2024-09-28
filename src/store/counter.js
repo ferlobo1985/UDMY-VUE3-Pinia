@@ -21,9 +21,14 @@ export const useCounterStore = defineStore('counter',{
         getCount(state){
             return state.counter
         },
+        getAttempts(state){
+            return state.attempts
+        },
         getPrize(state){
             let prize = '';
-            
+            state.attempts++;
+            console.log(this.getAttempts)
+
             for(let step=0;step < state.counter;step++){
                 prize  = state.prizes[Math.floor(Math.random()*state.prizes.length)]
             }
